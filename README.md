@@ -1,75 +1,38 @@
-# Project Nexus – Backend API
+# Project Nexus – Workship Management API (Advanced Starter)
 
-## Overview
+This is an **advanced starter template** for your Project Nexus backend:
 
-Project Nexus is an industry-ready backend API built as part of the **ProDev Backend Program**.  
-The goal of this project is to demonstrate professional-level skills in:
+- Node.js + TypeScript + Express
+- PostgreSQL + Prisma
+- JWT authentication with hashed passwords
+- Modular architecture (controllers, services, routes)
+- Ready for ERD, presentation, demo video, and deployment tasks
 
-- RESTful API design
-- Database modeling & optimization (PostgreSQL + Prisma)
-- Authentication & authorization
-- Caching & performance optimization
-- Proper documentation, testing, and DevOps-ready structure
+You can push this as your **GitHub repo**, then customize features, models, and docs.
 
-> 🔁 Replace this paragraph with your specific app concept. Example:  
-> “This project is a Workship Management Platform that links students with organisations for structured, work-based learning (‘workships’), including applications, placements, and feedback.”
-
----
-
-## Features
-
-- 🔐 User authentication & authorization (JWT-based)
-- 👤 Role-based access control (e.g., `admin`, `user`, etc.)
-- 🗄️ Relational database with Prisma ORM (PostgreSQL)
-- 📦 Modular architecture (controllers, services, repositories)
-- 📜 Auto-generated API docs (Swagger / OpenAPI)
-- 🧪 Basic tests (Jest / Supertest)
-- 🧰 Environment-based configuration
-- 🧹 Linting & formatting (ESLint + Prettier)
-
----
-
-## Tech Stack
-
-- **Language:** TypeScript
-- **Runtime:** Node.js
-- **Framework:** Express.js
-- **ORM:** Prisma
-- **Database:** PostgreSQL
-- **Auth:** JWT (JSON Web Tokens)
-- **Docs:** Swagger / OpenAPI
-- **Testing:** Jest + Supertest
-
----
-
-## Project Structure
+## Quick Start
 
 ```bash
-project-nexus/
-├─ src/
-│  ├─ app.ts
-│  ├─ server.ts
-│  ├─ config/
-│  │  └─ env.ts
-│  ├─ modules/
-│  │  ├─ auth/
-│  │  │  ├─ auth.controller.ts
-│  │  │  ├─ auth.service.ts
-│  │  │  └─ auth.routes.ts
-│  │  └─ users/
-│  │     ├─ user.controller.ts
-│  │     ├─ user.service.ts
-│  │     └─ user.routes.ts
-│  ├─ middleware/
-│  ├─ utils/
-│  └─ docs/
-│     └─ swagger.json
-├─ prisma/
-│  ├─ schema.prisma
-│  └─ migrations/
-├─ tests/
-├─ .env
-├─ .env.example
-├─ package.json
-├─ tsconfig.json
-└─ README.md
+npm install
+
+# Setup environment
+cp .env.example .env
+# Edit .env with your DATABASE_URL and JWT_SECRET
+
+# Prisma
+npx prisma migrate dev --name init
+npx prisma generate
+
+# Run dev server
+npm run dev
+```
+
+Health check:
+
+- `GET http://localhost:4000/health`
+
+Main flows to extend:
+
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `GET /api/users/me` (protected)
